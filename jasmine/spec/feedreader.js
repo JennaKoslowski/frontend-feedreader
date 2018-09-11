@@ -26,22 +26,33 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
+        it('URL is defined', function() {
+            for (var i = 0; i <= allFeeds; i++) {
+                expect(allFeeds[i].url).toBeDefined();
+                expect(allFeeds[i].url.length).not.toBe(0); 
+            }
+        })/* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
 
-
-        /* TODO: Write a test that loops through each feed
+        it('name is defined', function() {
+            for (var i=0; i<=allFeeds; i++) {
+                expect(allFeeds[i].name).toBeDefined();
+                expect(allFeeds[i].name.length).not.toBe(0);
+            }
+        }) /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
+    describe('The Menu', function(){ /* TODO: Write a new test suite named "The menu" */
 
+        it('menu is hidden' , function(){
+            expect(slide-menu.display)toBe("hidden")
+        })
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -53,7 +64,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-
+    }) 
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
