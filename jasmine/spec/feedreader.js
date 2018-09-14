@@ -86,12 +86,18 @@ $(function() {
      })
     
     describe('New Feed Selection', function(){/* TODO: Write a new test suite named "New Feed Selection" */
-    
+        let content1;
     beforeEach(function(done){
-        loadFeed(0, done);
+        loadFeed(0, function() {
+         content1 = $('.feed').html();
+        loadFeed(1, function(){
+            done();
+        });
+        })
     });
         it('new feed loaded', function(){
-            
+             let content2 = $('.feed').html();
+            expect(content1).not.toBe(content2);
         })
     })
         /* TODO: Write a test that ensures when a new feed is loaded
