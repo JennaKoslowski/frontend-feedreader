@@ -20,10 +20,10 @@ $(function() {
         });
 
         it('URL is defined', function() {
-            for (var i = 0; i <= allFeeds; i++) {
-                expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url.length).not.toBe(0); 
-            }
+             allFeeds.forEach(function(feed){
+                expect(feed.url).toBeDefined();
+                expect(allFeeds.length).not.toBe(0);
+            })
         })/*loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
@@ -63,9 +63,9 @@ $(function() {
     beforeEach(function(done){
         loadFeed(0, done);
     });
-        it ('loadFeed function called and completed', function(){
-            expect('title').not.toBe(0);
-            expect('contentSnippet').not.toBe(0);
+        it ('loadFeed function called and completed', function() {
+            let feedLength= $('.feed .entry').length
+            expect(feedLength).toBeGreaterThan(0);
         })/* ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
